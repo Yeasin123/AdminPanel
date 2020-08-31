@@ -60,7 +60,7 @@
                   if(isset($_POST['insert'])){
                     
                     $catname = $_POST['catname'];
-                    $catdesc = $_POST['catdesc'];
+                    $catdesc = mysqli_real_escape_string($db,$_POST['catdesc']);
                     $catstatus = $_POST['catstatus'];
 
                     $sql = " INSERT INTO category(cat_name,cat_desc,cat_status) VALUES('$catname','$catdesc','$catstatus') ";
@@ -136,7 +136,7 @@
 
                 $catname = $_POST['catname'];
 
-                $catdesc = $_POST['catdesc'];
+                $catdesc = mysqli_real_escape_string($db,$_POST['catdesc']);
 
                 $catstatus = $_POST['catstatus'];
 

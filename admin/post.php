@@ -66,7 +66,7 @@
                         $id            = $row['id'];
                         $Title         = $row['title'];
                         $image         = $row['image'];
-                        $catagory      = $row['catagory_id'];
+                        $catagory_id      = $row['catagory_id'];
                         $author_id     = $row['author_id'];
                         $status        = $row['status'];
                         $tags          = $row['tags'];
@@ -103,9 +103,9 @@
                             $cat_id  = $row['catId'];
                             $cat_name =$row['cat_name'];
                             
-                            if($catagory == $cat_id){
+                            if($catagory_id == $cat_id){
 
-                              echo '<p>'.$cat_name.'</p>';
+                              echo $cat_name;
                             }                 
                               }
                           ?>

@@ -118,7 +118,7 @@ include("inc/db.php");
               $sqlcon = mysqli_query($db,$sql);
 
               if($sqlcon){
-                header("Location:../index.html");
+                header("Location:../index.php");
               }
               else{
                 die("ERROR".mysqli_error($db));

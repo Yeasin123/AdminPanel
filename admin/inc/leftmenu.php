@@ -12,11 +12,31 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="img/users/<?php echo $_SESSION['image']; ?>" class="img-circle elevation-2" alt="User Image">
+
+          <?php
+
+              $sql = "SELECT * FROM users";
+              $result = mysqli_query($db,$sql);
+
+              while($row = mysqli_fetch_assoc($result)){
+                $id       = $row['id'];
+                $image    = $row['image'];
+                $fullname = $row['fullname'];
+
+                if($id == $_SESSION['id']){ ?>
+
+                  <img src="img/users/<?php echo $image ?>" class="img-circle elevation-2" alt="User Image">
+
+            
+          
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo $_SESSION['fullname']; ?></a>
+          <a href="#" class="d-block"><?php echo $fullname; ?></a>
         </div>
+           <?php }
+              }
+
+          ?>
       </div>
 
       <!-- Sidebar Menu -->
@@ -88,7 +108,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="allcmnt.php" class="nav-link">
+                <a href="allcmnt.php?do='Add'" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage All Comments </p>
                 </a>
